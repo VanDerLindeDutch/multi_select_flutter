@@ -503,6 +503,7 @@ class __MultiSelectChipFieldViewState<V>
             overflow: TextOverflow.ellipsis,
             style: _selectedValues.contains(item.value)
                 ? TextStyle(
+                    fontSize: widget.selectedTextStyle?.fontSize??16,
                     color: widget.colorator != null &&
                             widget.colorator!(item.value) != null
                         ? widget.colorator!(item.value)!.withOpacity(1)
