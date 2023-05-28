@@ -276,7 +276,7 @@ class __MultiSelectChipFieldViewState<V>
   void didUpdateWidget(_MultiSelectChipFieldView<V> oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    if (oldWidget.initialValue != widget.initialValue) {
+    /*if (oldWidget.initialValue != widget.initialValue) {
       _selectedValues = [];
       _selectedValues.addAll(widget.initialValue);
 
@@ -286,7 +286,7 @@ class __MultiSelectChipFieldViewState<V>
     }
     if (oldWidget.items != widget.items) {
       _items = [...widget.items];
-    }
+    }*/
   }
 
   _scrollToPosition() {
