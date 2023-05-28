@@ -472,7 +472,7 @@ class __MultiSelectBottomSheetFieldViewState<V>
                   ),
                 )
                 : widget.decoration,
-            padding: EdgeInsets.zero,
+            padding: EdgeInsetsDirectional.only(bottom: 8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[

@@ -61,7 +61,7 @@ class MultiSelectChipField<V> extends FormField<List<V>> {
 
   /// Build a custom widget that gets created dynamically for each item.
   final Widget Function(MultiSelectItem<V>, FormFieldState<List<V>>)?
-      itemBuilder;
+  itemBuilder;
 
   /// Set the height of the selectable area.
   final double? height;
@@ -116,43 +116,43 @@ class MultiSelectChipField<V> extends FormField<List<V>> {
     this.showHeader = true,
     this.chipWidth,
   }) : super(
-            key: key,
-            onSaved: onSaved,
-            validator: validator,
-            autovalidateMode: autovalidateMode,
-            initialValue: initialValue,
-            builder: (FormFieldState<List<V>> state) {
-              _MultiSelectChipFieldView view = _MultiSelectChipFieldView<V>(
-                items: items,
-                decoration: decoration,
-                chipColor: chipColor,
-                selectedChipColor: selectedChipColor,
-                colorator: colorator,
-                textStyle: textStyle,
-                selectedTextStyle: selectedTextStyle,
-                icon: icon,
-                searchIcon: searchIcon,
-                closeSearchIcon: closeSearchIcon,
-                chipShape: chipShape,
-                onTap: onTap,
-                title: title,
-                scroll: scroll,
-                initialValue: initialValue,
-                searchable: searchable,
-                searchHint: searchHint,
-                searchHintStyle: searchHintStyle,
-                searchTextStyle: searchTextStyle,
-                headerColor: headerColor,
-                itemBuilder: itemBuilder,
-                height: height,
-                scrollControl: scrollControl,
-                scrollBar: scrollBar,
-                showHeader: showHeader,
-                chipWidth: chipWidth,
-              );
-              return _MultiSelectChipFieldView<V?>.withState(
-                  view as _MultiSelectChipFieldView<V?>, state);
-            });
+      key: key,
+      onSaved: onSaved,
+      validator: validator,
+      autovalidateMode: autovalidateMode,
+      initialValue: initialValue,
+      builder: (FormFieldState<List<V>> state) {
+        _MultiSelectChipFieldView view = _MultiSelectChipFieldView<V>(
+          items: items,
+          decoration: decoration,
+          chipColor: chipColor,
+          selectedChipColor: selectedChipColor,
+          colorator: colorator,
+          textStyle: textStyle,
+          selectedTextStyle: selectedTextStyle,
+          icon: icon,
+          searchIcon: searchIcon,
+          closeSearchIcon: closeSearchIcon,
+          chipShape: chipShape,
+          onTap: onTap,
+          title: title,
+          scroll: scroll,
+          initialValue: initialValue,
+          searchable: searchable,
+          searchHint: searchHint,
+          searchHintStyle: searchHintStyle,
+          searchTextStyle: searchTextStyle,
+          headerColor: headerColor,
+          itemBuilder: itemBuilder,
+          height: height,
+          scrollControl: scrollControl,
+          scrollBar: scrollBar,
+          showHeader: showHeader,
+          chipWidth: chipWidth,
+        );
+        return _MultiSelectChipFieldView<V?>.withState(
+            view as _MultiSelectChipFieldView<V?>, state);
+      });
 }
 
 // ignore: must_be_immutable
@@ -180,7 +180,7 @@ class _MultiSelectChipFieldView<V> extends StatefulWidget
   final Function(List<V>)? onTap;
   final Color? headerColor;
   final Widget Function(MultiSelectItem<V>, FormFieldState<List<V>>)?
-      itemBuilder;
+  itemBuilder;
   final double? height;
   FormFieldState<List<V>>? state;
   final Function(ScrollController)? scrollControl;
@@ -301,164 +301,164 @@ class __MultiSelectChipFieldViewState<V>
           decoration: widget.decoration ??
               BoxDecoration(
                 border:
-                    Border.all(width: 1, color: Theme.of(context).primaryColor),
+                Border.all(width: 1, color: Theme.of(context).primaryColor),
               ),
           child: Column(
             children: [
               widget.showHeader
                   ? Container(
-                      color:
-                          widget.headerColor ?? Theme.of(context).primaryColor,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _showSearch
-                              ? Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.only(left: 10),
-                                    child: TextField(
-                                      style: widget.searchTextStyle,
-                                      decoration: InputDecoration(
-                                        hintStyle: widget.searchHintStyle,
-                                        hintText: widget.searchHint ?? "Search",
-                                        focusedBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: widget.selectedChipColor ??
-                                                Theme.of(context).primaryColor,
-                                          ),
-                                        ),
-                                      ),
-                                      onChanged: (val) {
-                                        setState(() {
-                                          _items = widget.updateSearchQuery(
-                                              val, widget.items);
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                )
-                              : Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: widget.title != null
-                                      ? Text(
-                                          widget.title!.data!,
-                                          style: TextStyle(
-                                              color: widget.title!.style != null
-                                                  ? widget.title!.style!.color
-                                                  : null,
-                                              fontSize:
-                                                  widget.title!.style != null
-                                                      ? widget.title!.style!
-                                                              .fontSize ??
-                                                          18
-                                                      : 18),
-                                        )
-                                      : Text(
-                                          "Select",
-                                          style: TextStyle(fontSize: 18),
-                                        ),
-                                ),
-                          widget.searchable != null && widget.searchable!
-                              ? IconButton(
-                                  icon: _showSearch
-                                      ? widget.closeSearchIcon ??
-                                          Icon(
-                                            Icons.close,
-                                            size: 22,
-                                          )
-                                      : widget.searchIcon ??
-                                          Icon(
-                                            Icons.search,
-                                            size: 22,
-                                          ),
-                                  onPressed: () {
-                                    setState(() {
-                                      _showSearch = !_showSearch;
-                                      if (!_showSearch) _items = widget.items;
-                                    });
-                                  },
-                                )
-                              : Padding(
-                                  padding: EdgeInsets.all(18),
-                                ),
-                        ],
+                color:
+                widget.headerColor ?? Theme.of(context).primaryColor,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _showSearch
+                        ? Expanded(
+                      child: Container(
+                        padding: EdgeInsets.zero,
+                        child: TextField(
+                          style: widget.searchTextStyle,
+                          decoration: InputDecoration(
+                            hintStyle: widget.searchHintStyle,
+                            hintText: widget.searchHint ?? "Search",
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: widget.selectedChipColor ??
+                                    Theme.of(context).primaryColor,
+                              ),
+                            ),
+                          ),
+                          onChanged: (val) {
+                            setState(() {
+                              _items = widget.updateSearchQuery(
+                                  val, widget.items);
+                            });
+                          },
+                        ),
                       ),
                     )
+                        : Padding(
+                      padding: EdgeInsetsDirectional.zero,
+                      child: widget.title != null
+                          ? Text(
+                        widget.title!.data!,
+                        style: TextStyle(
+                            color: widget.title!.style != null
+                                ? widget.title!.style!.color
+                                : null,
+                            fontSize:
+                            widget.title!.style != null
+                                ? widget.title!.style!
+                                .fontSize ??
+                                18
+                                : 18),
+                      )
+                          : Text(
+                        "Select",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    widget.searchable != null && widget.searchable!
+                        ? IconButton(
+                      icon: _showSearch
+                          ? widget.closeSearchIcon ??
+                          Icon(
+                            Icons.close,
+                            size: 22,
+                          )
+                          : widget.searchIcon ??
+                          Icon(
+                            Icons.search,
+                            size: 22,
+                          ),
+                      onPressed: () {
+                        setState(() {
+                          _showSearch = !_showSearch;
+                          if (!_showSearch) _items = widget.items;
+                        });
+                      },
+                    )
+                        : Padding(
+                      padding: EdgeInsets.all(0),
+                    ),
+                  ],
+                ),
+              )
                   : Container(),
               widget.scroll
                   ? Container(
-                      padding: widget.itemBuilder == null
-                          ? EdgeInsets.symmetric(horizontal: 5)
-                          : null,
-                      width: MediaQuery.of(context).size.width,
-                      height: widget.height ??
-                          MediaQuery.of(context).size.height * 0.08,
-                      child: widget.scrollBar != null
-                          ? Scrollbar(
-                              thumbVisibility: widget.scrollBar!.isAlwaysShown,
-                              controller: _scrollController,
-                              child: ListView.builder(
-                                controller: _scrollController,
-                                scrollDirection: Axis.horizontal,
-                                itemCount: _items.length,
-                                itemBuilder: (ctx, index) {
-                                  return widget.itemBuilder != null
-                                      ? widget.itemBuilder!(
-                                          _items[index] as MultiSelectItem<V>,
-                                          widget.state!)
-                                      : _buildItem(
-                                          _items[index] as MultiSelectItem<V?>);
-                                },
-                              ),
-                            )
-                          : ListView.builder(
-                              controller: _scrollController,
-                              scrollDirection: Axis.horizontal,
-                              itemCount: _items.length,
-                              itemBuilder: (ctx, index) {
-                                return widget.itemBuilder != null
-                                    ? widget.itemBuilder!(
-                                        _items[index] as MultiSelectItem<V>,
-                                        widget.state!)
-                                    : _buildItem(
-                                        _items[index] as MultiSelectItem<V?>);
-                              },
-                            ),
-                    )
+                padding: widget.itemBuilder == null
+                    ? EdgeInsetsDirectional.only(end: 5)
+                    : null,
+                width: MediaQuery.of(context).size.width,
+                height: widget.height ??
+                    MediaQuery.of(context).size.height * 0.08,
+                child: widget.scrollBar != null
+                    ? Scrollbar(
+                  thumbVisibility: widget.scrollBar!.isAlwaysShown,
+                  controller: _scrollController,
+                  child: ListView.builder(
+                    controller: _scrollController,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: _items.length,
+                    itemBuilder: (ctx, index) {
+                      return widget.itemBuilder != null
+                          ? widget.itemBuilder!(
+                          _items[index] as MultiSelectItem<V>,
+                          widget.state!)
+                          : _buildItem(
+                          _items[index] as MultiSelectItem<V?>);
+                    },
+                  ),
+                )
+                    : ListView.builder(
+                  controller: _scrollController,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: _items.length,
+                  itemBuilder: (ctx, index) {
+                    return widget.itemBuilder != null
+                        ? widget.itemBuilder!(
+                        _items[index] as MultiSelectItem<V>,
+                        widget.state!)
+                        : _buildItem(
+                        _items[index] as MultiSelectItem<V?>);
+                  },
+                ),
+              )
                   : Container(
-                      height: widget.height,
-                      alignment: Alignment.centerLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Wrap(
-                        children: widget.itemBuilder != null
-                            ? _items
-                                .map((item) => widget.itemBuilder!(
-                                    item as MultiSelectItem<V>, widget.state!))
-                                .toList()
-                            : _items
-                                .map((item) =>
-                                    _buildItem(item as MultiSelectItem<V?>))
-                                .toList(),
-                      ),
-                    ),
+                height: widget.height,
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Wrap(
+                  children: widget.itemBuilder != null
+                      ? _items
+                      .map((item) => widget.itemBuilder!(
+                      item as MultiSelectItem<V>, widget.state!))
+                      .toList()
+                      : _items
+                      .map((item) =>
+                      _buildItem(item as MultiSelectItem<V?>))
+                      .toList(),
+                ),
+              ),
             ],
           ),
         ),
         widget.state != null && widget.state!.hasError
             ? Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(4, 4, 0, 0),
-                    child: Text(
-                      widget.state!.errorText!,
-                      style: TextStyle(
-                        color: Colors.red[800],
-                        fontSize: 12.5,
-                      ),
-                    ),
-                  ),
-                ],
-              )
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.fromLTRB(4, 4, 0, 0),
+              child: Text(
+                widget.state!.errorText!,
+                style: TextStyle(
+                  color: Colors.red[800],
+                  fontSize: 12.5,
+                ),
+              ),
+            ),
+          ],
+        )
             : Container(),
       ],
     );
@@ -473,11 +473,11 @@ class __MultiSelectChipFieldViewState<V>
             RoundedRectangleBorder(
               side: BorderSide(
                   color: widget.colorator != null &&
-                          widget.colorator!(item.value) != null &&
-                          _selectedValues.contains(item.value)
+                      widget.colorator!(item.value) != null &&
+                      _selectedValues.contains(item.value)
                       ? widget.colorator!(item.value)!
                       : widget.selectedChipColor ??
-                          Theme.of(context).primaryColor),
+                      Theme.of(context).primaryColor),
               borderRadius: BorderRadius.vertical(
                 top: Radius.circular(15.0),
                 bottom: Radius.circular(15.0),
@@ -485,16 +485,16 @@ class __MultiSelectChipFieldViewState<V>
             ),
         avatar: _selectedValues.contains(item.value)
             ? widget.icon != null
-                ? Icon(
-                    widget.icon!.icon,
-                    color: widget.colorator != null &&
-                            widget.colorator!(item.value) != null
-                        ? widget.colorator!(item.value)!.withOpacity(1)
-                        : widget.icon!.color ??
-                            widget.selectedChipColor ??
-                            Theme.of(context).primaryColor,
-                  )
-                : null
+            ? Icon(
+          widget.icon!.icon,
+          color: widget.colorator != null &&
+              widget.colorator!(item.value) != null
+              ? widget.colorator!(item.value)!.withOpacity(1)
+              : widget.icon!.color ??
+              widget.selectedChipColor ??
+              Theme.of(context).primaryColor,
+        )
+            : null
             : null,
         label: Container(
           width: widget.chipWidth,
@@ -503,31 +503,31 @@ class __MultiSelectChipFieldViewState<V>
             overflow: TextOverflow.ellipsis,
             style: _selectedValues.contains(item.value)
                 ? TextStyle(
-                    fontSize: widget.selectedTextStyle?.fontSize??16,
-                    color: widget.colorator != null &&
-                            widget.colorator!(item.value) != null
-                        ? widget.colorator!(item.value)!.withOpacity(1)
-                        : widget.selectedTextStyle != null
-                            ? widget.selectedTextStyle!.color
-                            : null)
+                fontSize: widget.selectedTextStyle?.fontSize??16,
+                color: widget.colorator != null &&
+                    widget.colorator!(item.value) != null
+                    ? widget.colorator!(item.value)!.withOpacity(1)
+                    : widget.selectedTextStyle != null
+                    ? widget.selectedTextStyle!.color
+                    : null)
                 : TextStyle(
-                    color: widget.textStyle != null
-                        ? widget.textStyle!.color ?? widget.chipColor
-                        : widget.chipColor,
-                    fontSize: widget.textStyle != null
-                        ? widget.textStyle!.fontSize
-                        : null,
-                  ),
+              color: widget.textStyle != null
+                  ? widget.textStyle!.color ?? widget.chipColor
+                  : widget.chipColor,
+              fontSize: widget.textStyle != null
+                  ? widget.textStyle!.fontSize
+                  : null,
+            ),
           ),
         ),
         selected: _selectedValues.contains(item.value),
         backgroundColor: widget.chipColor ?? Colors.white70,
         selectedColor:
-            widget.colorator != null && widget.colorator!(item.value) != null
-                ? widget.colorator!(item.value)
-                : widget.selectedChipColor != null
-                    ? widget.selectedChipColor
-                    : Theme.of(context).primaryColor.withOpacity(0.33),
+        widget.colorator != null && widget.colorator!(item.value) != null
+            ? widget.colorator!(item.value)
+            : widget.selectedChipColor != null
+            ? widget.selectedChipColor
+            : Theme.of(context).primaryColor.withOpacity(0.33),
         onSelected: (_) {
           if (_) {
             _selectedValues.add(item.value);

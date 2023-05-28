@@ -89,40 +89,40 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
     return Container(
       decoration: decoration,
       alignment: alignment ?? Alignment.centerLeft,
-      padding: EdgeInsets.symmetric(horizontal: scroll ? 0 : 10),
+      padding: EdgeInsetsDirectional.only(end: scroll ? 0 : 10),
       child: scroll
           ? Container(
-              width: MediaQuery.of(context).size.width,
-              height: height ?? MediaQuery.of(context).size.height * 0.08,
-              child: scrollBar != null
-                  ? Scrollbar(
-                      thumbVisibility: scrollBar!.isAlwaysShown,
-                      controller: _scrollController,
-                      child: ListView.builder(
-                        controller: _scrollController,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: items!.length,
-                        itemBuilder: (ctx, index) {
-                          return _buildItem(items![index]!, context);
-                        },
-                      ),
-                    )
-                  : ListView.builder(
-                      controller: _scrollController,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: items!.length,
-                      itemBuilder: (ctx, index) {
-                        return _buildItem(items![index]!, context);
-                      },
-                    ),
-            )
+        width: MediaQuery.of(context).size.width,
+        height: height ?? MediaQuery.of(context).size.height * 0.08,
+        child: scrollBar != null
+            ? Scrollbar(
+          thumbVisibility: scrollBar!.isAlwaysShown,
+          controller: _scrollController,
+          child: ListView.builder(
+            controller: _scrollController,
+            scrollDirection: Axis.horizontal,
+            itemCount: items!.length,
+            itemBuilder: (ctx, index) {
+              return _buildItem(items![index]!, context);
+            },
+          ),
+        )
+            : ListView.builder(
+          controller: _scrollController,
+          scrollDirection: Axis.horizontal,
+          itemCount: items!.length,
+          itemBuilder: (ctx, index) {
+            return _buildItem(items![index]!, context);
+          },
+        ),
+      )
           : Wrap(
-              children: items != null
-                  ? items!.map((item) => _buildItem(item!, context)).toList()
-                  : <Widget>[
-                      Container(),
-                    ],
-            ),
+        children: items != null
+            ? items!.map((item) => _buildItem(item!, context)).toList()
+            : <Widget>[
+          Container(),
+        ],
+      ),
     );
   }
 
@@ -133,11 +133,11 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
         shape: shape as OutlinedBorder?,
         avatar: icon != null
             ? Icon(
-                icon!.icon,
-                color: colorator != null && colorator!(item.value) != null
-                    ? colorator!(item.value)!.withOpacity(1)
-                    : icon!.color ?? Theme.of(context).primaryColor,
-              )
+          icon!.icon,
+          color: colorator != null && colorator!(item.value) != null
+              ? colorator!(item.value)!.withOpacity(1)
+              : icon!.color ?? Theme.of(context).primaryColor,
+        )
             : null,
         label: Container(
           width: chipWidth,
@@ -147,13 +147,13 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
             style: TextStyle(
               color: colorator != null && colorator!(item.value) != null
                   ? textStyle != null
-                      ? textStyle!.color ?? colorator!(item.value)
-                      : colorator!(item.value)
+                  ? textStyle!.color ?? colorator!(item.value)
+                  : colorator!(item.value)
                   : textStyle != null && textStyle!.color != null
-                      ? textStyle!.color
-                      : chipColor != null
-                          ? chipColor!.withOpacity(1)
-                          : null,
+                  ? textStyle!.color
+                  : chipColor != null
+                  ? chipColor!.withOpacity(1)
+                  : null,
               fontSize: textStyle != null ? textStyle!.fontSize : null,
             ),
           ),
@@ -162,8 +162,8 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
         selectedColor: colorator != null && colorator!(item.value) != null
             ? colorator!(item.value)
             : chipColor != null
-                ? chipColor
-                : Theme.of(context).primaryColor.withOpacity(0.33),
+            ? chipColor
+            : Theme.of(context).primaryColor.withOpacity(0.33),
         onSelected: (_) {
           if (onTap != null) onTap!(item.value);
         },
